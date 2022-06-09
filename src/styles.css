@@ -1,0 +1,22 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    margin-left: 730px;
+    margin-right: 730px;
+}
+
+#wrapper {
+    display: inline-block;
+}
+
+.thumbnail {
+    height: 100px;
+    width: 115px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+}
+
+#bigimage {
+    width: 82%;
+}

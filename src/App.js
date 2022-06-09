@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import './styles.css';
+import imageArr from "./imageData.js"
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  const [bigImage, setBigImage] = useState(imageArr[0].img);
+  const handleImage = (url) => {setBigImage(url)};
+  const city = imageArr.map((elem, index) => {
+    return(<img 
+      className="thumbnail" 
+      id={elem.name} 
+      src={elem.img} 
+      alt={elem.name} 
+      key={index} 
+      onClick={() => handleImage(elem.img)}/>);
+  });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Cities Of The World</h1>
+      <div id="wrapper">
+        <div id="thumbnails">
+          {city}
+        </div>
+        {/* THE SRC IMAGE URL SHOULD BE SET TO THE VALUE THAT IS STORED IN bigImage */}
+        <img src={bigImage} id="bigimage" alt='bigImage'/>
+      </div>
     </div>
   );
 }
 
-export default App;
+
+
